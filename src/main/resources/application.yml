@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/preonboarding
+    username: preonboarding
+    password: preonboarding
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+jwt:
+  access-secret: and0LWV4YW1wbGUtYWNjZXNzLXRva2VuLXNlY3JldC1rZXk=
+  access-token-expire-time: 1209600000
+  refresh-secret: and0LWV4YW1wbGUtcmVmcmVzaC10b2tlbi1zZWNyZXQta2V5
+  refresh-token-expire-time: 1209600000

@@ -1,13 +1,13 @@
-package com.wanted.preonboding;
+package com.wanted.preonboarding;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PreOnbodingApplication {
+public class PreOnboardingApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PreOnbodingApplication.class, args);
+        SpringApplication.run(PreOnboardingApplication.class, args);
     }
 
 }

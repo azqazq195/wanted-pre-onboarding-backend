@@ -1,4 +1,4 @@
-package com.wanted.preonboding.common.environment;
+package com.wanted.preonboarding.common.environment;
 
 import lombok.AllArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;

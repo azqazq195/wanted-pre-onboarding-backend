@@ -1,4 +1,4 @@
-package com.wanted.preonboding.common.domain;
+package com.wanted.preonboarding.common.domain;
 
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;

@@ -1,1 +1,1 @@
-rootProject.name = "pre-onboding"
+rootProject.name = "pre-onboarding"

@@ -1,10 +1,10 @@
-package com.wanted.preonboding;
+package com.wanted.preonboarding;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PreOnbodingApplicationTests {
+class PreOnboardingApplicationTests {
 
     @Test
     void contextLoads() {

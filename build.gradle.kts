@@ -2,6 +2,7 @@ plugins {
     java
     id("org.springframework.boot") version "3.1.2"
     id("io.spring.dependency-management") version "1.1.2"
+    id("org.asciidoctor.jvm.convert") version "3.3.2"
 }
 
 group = "com.wanted"
@@ -15,9 +16,12 @@ repositories {
     mavenCentral()
 }
 
-val jwtVersion = "0.11.5"
+val asciidoctorExt: Configuration by configurations.creating
+val snippetsDir by extra { "build/generated-snippets" }
 
 dependencies {
+    val jwtVersion = "0.11.5"
+
     // spring
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -43,8 +47,28 @@ dependencies {
 
     // test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+    asciidoctorExt("org.springframework.restdocs:spring-restdocs-asciidoctor")
 }
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    outputs.dir(snippetsDir)
+}
+
+tasks {
+    asciidoctor {
+        dependsOn(test)
+        inputs.dir(snippetsDir)
+        configurations(asciidoctorExt.name)
+        baseDirFollowsSourceFile()
+    }
+
+    build {
+        dependsOn(asciidoctor)
+        copy {
+            from("${asciidoctor.get().outputDir}")
+            into("src/main/resources/static/docs")
+        }
+    }
 }

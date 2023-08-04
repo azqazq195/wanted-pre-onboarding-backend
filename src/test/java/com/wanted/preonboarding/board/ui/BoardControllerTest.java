@@ -55,7 +55,7 @@ public class BoardControllerTest extends RestControllerTest {
                 .andExpect(status().isCreated())
                 .andDo(
                         document(
-                                "boar/create",
+                                "board/create",
                                 requestFields(
                                         fieldWithPath("title").type(JsonFieldType.STRING).description("제목"),
                                         fieldWithPath("content").type(JsonFieldType.STRING).description("내용")

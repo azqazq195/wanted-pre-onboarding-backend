@@ -1,0 +1,60 @@
+= Api Document
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+[[Auth]]
+== Auth
+
+[[sign-up]]
+=== 회원가입
+
+operation::auth/sign-up[snippets='http-request,request-fields,http-response']
+
+[[sign-in]]
+=== 로그인
+
+operation::auth/sign-in[snippets='http-request,request-fields,http-response,response-fields']
+
+[[sign-out]]
+=== 로그아웃
+
+operation::auth/sign-out[snippets='http-request,http-response']
+
+[[refresh]]
+=== 토큰 재발행
+
+operation::auth/refresh[snippets='http-request,request-fields,http-response,response-fields']
+
+[[Board]]
+== Board
+
+[[create]]
+=== 생성
+
+operation::board/create[snippets='http-request,request-fields,http-response,response-fields']
+
+[[update]]
+=== 수정
+
+operation::board/update[snippets='http-request,path-parameters,request-fields,http-response,response-fields']
+
+[[delete]]
+=== 삭제
+
+operation::board/delete[snippets='http-request,path-parameters,http-response']
+
+[[retreive]]
+=== 단일 조회
+
+operation::board/retrieve[snippets='http-request,path-parameters,http-response,response-fields']
+
+[[retreiveAll]]
+=== 전체 조회
+
+operation::board/retrieveAll[snippets='http-request,query-parameters,http-response,response-fields']
+
+

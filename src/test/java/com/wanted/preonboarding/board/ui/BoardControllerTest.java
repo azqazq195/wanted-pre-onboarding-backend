@@ -45,7 +45,8 @@ public class BoardControllerTest extends RestControllerTest {
         BoardResponse boardResponse = BoardFixtures.createBoardResponse();
         MockHttpServletRequestBuilder requestBuilder = post(url)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(boardRequest));
+                .content(objectMapper.writeValueAsString(boardRequest))
+                .header("Authorization", "accessToken");
 
         when(boardService.create(boardRequest)).thenReturn(boardResponse);
 
@@ -86,7 +87,8 @@ public class BoardControllerTest extends RestControllerTest {
         BoardResponse boardResponse = BoardFixtures.createBoardResponse();
         MockHttpServletRequestBuilder requestBuilder = put(url, id)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(boardRequest));
+                .content(objectMapper.writeValueAsString(boardRequest))
+                .header("Authorization", "accessToken");
 
         when(boardService.update(id, boardRequest)).thenReturn(boardResponse);
 
@@ -126,7 +128,8 @@ public class BoardControllerTest extends RestControllerTest {
         // given
         String url = "/board/{id}";
         Long id = 1L;
-        MockHttpServletRequestBuilder requestBuilder = RestDocumentationRequestBuilders.delete(url, id);
+        MockHttpServletRequestBuilder requestBuilder = RestDocumentationRequestBuilders.delete(url, id)
+                .header("Authorization", "accessToken");
 
         doNothing().when(boardService).delete(id);
 
@@ -151,7 +154,8 @@ public class BoardControllerTest extends RestControllerTest {
         String url = "/board/{id}";
         Long id = 1L;
         BoardResponse boardResponse = BoardFixtures.createBoardResponse();
-        MockHttpServletRequestBuilder requestBuilder = get(url, id);
+        MockHttpServletRequestBuilder requestBuilder = get(url, id)
+                .header("Authorization", "accessToken");
 
         when(boardService.retrieve(id)).thenReturn(boardResponse);
 
@@ -191,7 +195,8 @@ public class BoardControllerTest extends RestControllerTest {
         Page<BoardResponse> boardPage = new PageImpl<>(boardList, pageable, boardList.size());
         MockHttpServletRequestBuilder requestBuilder = get(url)
                 .param("size", String.valueOf(pageable.getPageSize()))
-                .param("page", String.valueOf(pageable.getPageNumber()));
+                .param("page", String.valueOf(pageable.getPageNumber()))
+                .header("Authorization", "accessToken");
 
         when(boardService.retrieveAll(pageable)).thenReturn(boardPage);
 

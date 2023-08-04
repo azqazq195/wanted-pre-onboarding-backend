@@ -1,4 +1,4 @@
-package com.wanted.preonboarding.common.domain;
+package com.wanted.preonboarding._common.domain;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

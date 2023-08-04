@@ -13,7 +13,13 @@ import lombok.NoArgsConstructor;
 @Getter
 public class Board extends BaseAuditingEntity {
     private String title;
-    
+
     @Column(columnDefinition = "text")
     private String content;
+
+    public void update(Board board) {
+        this.title = board.getTitle();
+        this.content = board.getContent();
+    }
 }
+
